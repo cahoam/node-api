@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
-const Contact = require('../model/contact');
+const Contact = require('../model/Contact');
 
 const conn = new Sequelize(db);
 
