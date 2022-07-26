@@ -5,7 +5,7 @@ class Contact extends Model{
         super.init({
             name: DataTypes.STRING,
             email: DataTypes.STRING,
-            phone: DataTypes.INTEGER,
+            phone: DataTypes.STRING(15),
             birthDate: DataTypes.DATE,
             profilePhoto: DataTypes.BLOB,
         },{
