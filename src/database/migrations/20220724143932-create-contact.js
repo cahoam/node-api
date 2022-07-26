@@ -27,7 +27,7 @@ module.exports = {
           allowNull: false
         },
         profilePhoto: {
-          type: Sequelize.BLOB,
+          type: Sequelize.TEXT,
           allowNull: false
         },
       }

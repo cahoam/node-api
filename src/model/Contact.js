@@ -7,7 +7,7 @@ class Contact extends Model{
             email: DataTypes.STRING,
             phone: DataTypes.STRING(15),
             birthDate: DataTypes.DATE,
-            profilePhoto: DataTypes.BLOB,
+            profilePhoto: DataTypes.TEXT,
         },{
             sequelize
         })
