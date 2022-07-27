@@ -23,7 +23,7 @@ module.exports = {
           allowNull: false
         },
         birthDate: {
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
           allowNull: false
         },
         profilePhoto: {
