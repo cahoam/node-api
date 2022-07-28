@@ -2,48 +2,94 @@ const Contact = require("../model/Contact");
 
 module.exports = {
     async index(req,res){
-        const contact = await Contact.findAll();
-        return res.json(contact);
+        Contact.findAll().then((result)=>{
+            return res.json({
+                status: "success",
+                data: result
+            });
+        }).catch((e)=>{
+            return res.json({
+                status: "fail",
+                message: e
+            })
+        })
     },
 
     async findById(req,res){
         const { id } = req.params;
-        const contact = await Contact.findAll({
+        Contact.findAll({
             where:{
                 id: id
             }
+        }).then((result)=>{
+            return res.json({
+                status: "success",
+                data: result
+            })
+        }).catch((e)=>{
+            return res.json({
+                status: "fail",
+                message: e    
+            })
         });
-        return res.json(contact);
     },
 
     async insert(req,res){
         const { name, email, phone, birthDate, profilePhoto } = req.body;
-        const contact = await Contact.create({
+        Contact.create({
             name, email, phone, birthDate, profilePhoto
+        }).then((result)=>{
+            return res.json({
+                status: "success",
+                data: result
+            })
+        }).catch((e)=>{
+            return res.json({
+                status: "fail",
+                message: e    
+            })
         });
-        return res.json(contact);
     },
 
     async delete(req,res){
         const { id } = req.params;
-        const contact = await Contact.destroy({
+        Contact.destroy({
             where:{
                 id: id
             }
+        }).then((result)=>{
+            return res.json({
+                status: "success",
+                data: result
+            })
+        }).catch((e)=>{
+            return res.json({
+                status: "fail",
+                message: e    
+            })
         });
-        return res.json(contact);
+        
     },
 
     async update(req,res){
         const { id, name, email, phone, birthDate, profilePhoto } = req.body;
-        const contact = await Contact.update({
+        Contact.update({
             name, email, phone, birthDate, profilePhoto
         },{
             where: {
                 id: id
             }
+        }).then((result)=>{
+            return res.json({
+                status: "success",
+                data: result
+            })
+        }).catch((e)=>{
+            return res.json({
+                status: "fail",
+                message: e    
+            })
         });
-        return res.json(contact);
     }
 
 }
